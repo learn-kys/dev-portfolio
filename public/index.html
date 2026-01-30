@@ -1,12 +1,224 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hello, World!</title>
-	</head>
-	<body>
-		<h1 id="heading">Hello, World!</h1>
-		<p>This page comes from a static asset stored at `public/index.html` as configured in `wrangler.jsonc`.</p>
-	</body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Dev Team Portfolio</title>
+	<style>
+		:root {
+			/* Dark theme (default) */
+			--bg-primary: #1a1f1e;
+			--bg-secondary: #232928;
+			--bg-hover: #2a3230;
+			--text-primary: #a8c5a0;
+			--text-heading: #7fb069;
+			--text-name: #9fd68a;
+			--text-link: #6a8f5f;
+			--text-link-hover: #7fb069;
+			--text-subtitle: #6a8f5f;
+			--border-color: #7fb069;
+			--border-hover: #9fd68a;
+		}
+
+		[data-theme="light"] {
+			/* Light theme - eye-relaxing warm tones */
+			--bg-primary: #f5f1e8;
+			--bg-secondary: #e8e4d9;
+			--bg-hover: #ddd9cc;
+			--text-primary: #5a6b4f;
+			--text-heading: #4a7c59;
+			--text-name: #3d6b4a;
+			--text-link: #6b8e5f;
+			--text-link-hover: #4a7c59;
+			--text-subtitle: #7a8a6f;
+			--border-color: #6b9b5f;
+			--border-hover: #4a7c59;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+			background-color: var(--bg-primary);
+			color: var(--text-primary);
+			line-height: 1.6;
+			padding: 2rem;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		.container {
+			max-width: 800px;
+			width: 100%;
+			position: relative;
+		}
+
+		.theme-toggle {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: var(--bg-secondary);
+			border: 2px solid var(--border-color);
+			color: var(--text-primary);
+			padding: 0.5rem 1rem;
+			font-family: inherit;
+			font-size: 0.9rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			border-radius: 4px;
+		}
+
+		.theme-toggle:hover {
+			background-color: var(--bg-hover);
+			border-color: var(--border-hover);
+			transform: scale(1.05);
+		}
+
+		h1 {
+			color: var(--text-heading);
+			font-size: 2rem;
+			margin-bottom: 0.5rem;
+			font-weight: normal;
+			transition: color 0.3s ease;
+		}
+
+		.subtitle {
+			color: var(--text-subtitle);
+			font-size: 1rem;
+			margin-bottom: 3rem;
+			opacity: 0.8;
+			transition: color 0.3s ease;
+		}
+
+		.developers {
+			list-style: none;
+		}
+
+		.developer {
+			margin-bottom: 1.5rem;
+			padding: 1rem;
+			background-color: var(--bg-secondary);
+			border-left: 3px solid var(--border-color);
+			transition: all 0.3s ease;
+		}
+
+		.developer:hover {
+			background-color: var(--bg-hover);
+			border-left-color: var(--border-hover);
+			transform: translateX(5px);
+		}
+
+		.developer-name {
+			color: var(--text-name);
+			font-size: 1.1rem;
+			margin-bottom: 0.3rem;
+			transition: color 0.3s ease;
+		}
+
+		.developer-link {
+			color: var(--text-link);
+			text-decoration: none;
+			font-size: 0.9rem;
+			transition: color 0.3s ease;
+		}
+
+		.developer-link:hover {
+			color: var(--text-link-hover);
+			text-decoration: underline;
+		}
+
+		.developer-link::before {
+			content: "→ ";
+			margin-right: 0.3rem;
+		}
+
+		footer {
+			margin-top: 3rem;
+			text-align: center;
+			color: var(--text-subtitle);
+			font-size: 0.85rem;
+			opacity: 0.7;
+			transition: color 0.3s ease;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<button class="theme-toggle" id="themeToggle">☀️ Light</button>
+
+		<h1>// dev team</h1>
+		<p class="subtitle">This Project belongs to group of developers</p>
+
+		<ul class="developers">
+			<li class="developer">
+				<div class="developer-name">Danish Shamshee</div>
+				<a href="https://github.com/dshamshee" class="developer-link" target="_blank">github.com/dshamshee</a>
+			</li>
+
+			<li class="developer">
+				<div class="developer-name">Amit Kumar</div>
+				<a href="https://github.com/amitkys" class="developer-link" target="_blank">github.com/amitkys</a>
+			</li>
+
+			<!-- <li class="developer">
+				<div class="developer-name">Carol Zhang</div>
+				<a href="https://github.com/carolzhang" class="developer-link" target="_blank">github.com/carolzhang</a>
+			</li>
+
+			<li class="developer">
+				<div class="developer-name">David Kumar</div>
+				<a href="https://github.com/davidkumar" class="developer-link" target="_blank">github.com/davidkumar</a>
+			</li>
+
+			<li class="developer">
+				<div class="developer-name">Emma Wilson</div>
+				<a href="https://github.com/emmawilson" class="developer-link" target="_blank">github.com/emmawilson</a>
+			</li> -->
+		</ul>
+
+		<footer>
+			&lt;/&gt; built with care
+		</footer>
+	</div>
+
+	<script>
+		const themeToggle = document.getElementById('themeToggle');
+		const html = document.documentElement;
+
+		// Check for saved theme preference or default to 'dark'
+		const currentTheme = localStorage.getItem('theme') || 'dark';
+
+		// Apply the theme on page load
+		if (currentTheme === 'light') {
+			html.setAttribute('data-theme', 'light');
+			themeToggle.textContent = '🌙 Dark';
+		}
+
+		// Toggle theme on button click
+		themeToggle.addEventListener('click', () => {
+			const theme = html.getAttribute('data-theme');
+
+			if (theme === 'light') {
+				html.removeAttribute('data-theme');
+				themeToggle.textContent = '☀️ Light';
+				localStorage.setItem('theme', 'dark');
+			} else {
+				html.setAttribute('data-theme', 'light');
+				themeToggle.textContent = '🌙 Dark';
+				localStorage.setItem('theme', 'light');
+			}
+		});
+	</script>
+</body>
+
 </html>
